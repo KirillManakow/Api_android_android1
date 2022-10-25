@@ -9,9 +9,9 @@ public class Mask implements Parcelable {
     private String Users;
     private String Nazvanie;
     private String Zena;
-    private String Image;
+    private byte Image;
 
-    public Mask(int Id_zakaz, String user, String nazvanie, String zena, String image) {
+    public Mask(int Id_zakaz, String user, String nazvanie, String zena, byte image) {
         this.Id_zakaz = Id_zakaz;
         Users = user;
         Nazvanie = nazvanie;
@@ -24,7 +24,7 @@ public class Mask implements Parcelable {
         Users = in.readString();
         Nazvanie = in.readString();
         Zena = in.readString();
-        Image = in.readString();
+        Image = in.readByte();
     }
 
     public static final Creator<Mask> CREATOR = new Creator<Mask>() {
@@ -56,7 +56,7 @@ public class Mask implements Parcelable {
         Zena = zena;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte image) {
         Image = image;
     }
 
@@ -71,7 +71,7 @@ public class Mask implements Parcelable {
         parcel.writeString(Users);
         parcel.writeString(Nazvanie);
         parcel.writeString(Zena);
-        parcel.writeString(Image);
+        parcel.writeByte(Image);
     }
 
     public int getId_zakaz() {
@@ -90,7 +90,7 @@ public class Mask implements Parcelable {
         return Zena;
     }
 
-    public String getImage() {
+    public Byte getImage() {
         return Image;
     }
 }
